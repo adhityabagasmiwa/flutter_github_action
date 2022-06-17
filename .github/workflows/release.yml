@@ -14,12 +14,12 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: "12.x"
-      
-      # this flutter action does the heavy lifting for us  
+
+      # this flutter action does the heavy lifting for us
       - uses: subosito/flutter-action@v1
         with:
-        flutter-version: '3.0.2'
-        channel: 'stable'  
+          flutter-version: "3.0.2"
+          channel: "stable"
 
       # now get packages
       - run: flutter pub get
@@ -27,7 +27,7 @@ jobs:
       - run: flutter analyze
       # now build apk
       - run: flutter build apk --debug --split-per-abi
-      
+
       # now relase the just created build
       - name: Create a Release APK
         uses: ncipollo/release-action@v1
